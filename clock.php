@@ -1,40 +1,4 @@
 <?php 
-    $connection=mysqli_connect('localhost','root','','clock');
-    if(isset($_POST['submit']))             
-    {
-        $edate=$_POST['edate'];
-        $ename=$_POST['ename'];
-      	$rand=mt_rand(10000,99999);
-        $check="SELECT *FROM addevent WHERE edate = '$edate'";
-        $rs = mysqli_query($connection,$check);
-        if(mysqli_num_rows($rs)>0)
-        {
-
-            echo "<script type='text/javascript'>alert('You will add only one event per day');</script>";            
-        }
-        else
-        {
-        $sql="insert into addevent values('$rand','$edate','$ename')";
-        $result=mysqli_query($connection,$sql);
-                 
-         
-        }
-
-
-    }
-   
-
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-
-   <link href="css/custom_style.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <script src="js/script.js"></script>
